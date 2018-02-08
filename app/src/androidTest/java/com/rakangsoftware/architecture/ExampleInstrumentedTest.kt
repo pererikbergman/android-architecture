@@ -1,4 +1,4 @@
-package com.rakangsoftware.androidarchitecturecomponents
+package com.rakangsoftware.architecture
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

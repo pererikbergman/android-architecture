@@ -1,4 +1,4 @@
-package com.rakangsoftware.androidarchitecturecomponents
+package com.rakangsoftware.architecture
 
 import org.junit.Test
 
