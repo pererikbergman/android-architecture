@@ -20,7 +20,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public ContactAdapter(ViewHolder.OnContactClickListener onContactClickListener) {
         mOnContactClickListener = onContactClickListener;
         List<Contact> data = new ArrayList<>();
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 100; ++i) {
             Contact contact = new Contact();
             contact.setName("Name no." + i);
             contact.setSurename("Surename no." + i);
