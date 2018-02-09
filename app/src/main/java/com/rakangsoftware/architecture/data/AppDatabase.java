@@ -13,13 +13,15 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase sDatabase;
 
     public static AppDatabase getDB(Context context) {
-        if (sDatabase == null) {
-            sDatabase = Room.databaseBuilder(
-                    context,
-                    AppDatabase.class,
-                    "database.db")
-                    .allowMainThreadQueries()
-                    .build();
+        synchronized (sDatabase) {
+            if (sDatabase == null) {
+                sDatabase = Room.databaseBuilder(
+                        context,
+                        AppDatabase.class,
+                        "database.db")
+                        .allowMainThreadQueries()
+                        .build();
+            }
         }
 
         return sDatabase;
