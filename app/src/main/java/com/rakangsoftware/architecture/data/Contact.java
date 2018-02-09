@@ -4,8 +4,10 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "contacts")
+@Entity(tableName = Contact.CONTACTS)
 public class Contact {
+
+    public static final String CONTACTS = "contacts";
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

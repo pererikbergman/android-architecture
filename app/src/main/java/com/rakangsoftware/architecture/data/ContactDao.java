@@ -9,15 +9,17 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import static com.rakangsoftware.architecture.data.Contact.CONTACTS;
+
 @Dao
 public interface ContactDao {
     @Insert
     void insert(Contact... contacts);
 
-    @Query("SELECT * FROM contacts")
+    @Query("SELECT * FROM " + CONTACTS)
     LiveData<List<Contact>> getAllContacts();
 
-    @Query("SELECT * FROM contacts WHERE id = :id")
+    @Query("SELECT * FROM " + CONTACTS + " WHERE id = :id")
     LiveData<Contact> getContactById(int id);
 
     @Update
