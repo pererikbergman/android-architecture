@@ -12,16 +12,19 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
 
-        private var sDatabase: AppDatabase? = null
+        private lateinit var sDatabase: AppDatabase
 
         fun getDB(context: Context): AppDatabase {
-            if (sDatabase == null) {
-                sDatabase = Room.databaseBuilder(
-                        context,
-                        AppDatabase::class.java,
-                        "database.db")
-                        .allowMainThreadQueries()
-                        .build()
+            synchronized(this) {
+                if (sDatabase == null) {
+                    sDatabase = Room.databaseBuilder(
+                            context,
+                            AppDatabase::class.java,
+                            "database.db")
+                            .allowMainThreadQueries()
+                            .build()
+                }
+
             }
 
             return sDatabase
